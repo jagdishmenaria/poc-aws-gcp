@@ -1,0 +1,69 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-testing-system
+spec:
+  ports:
+  - port: 8000
+  selector:
+    app: hello-world-testing-system
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-testing-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-testing-system
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: hello-world-testing-system
+    spec:
+      containers:
+      - name: hello-world-testing-system
+        image: gcr.io/<PROJECT_ID>/hello-app:1.2
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: AWS_BUCKET
+          value: "hello-world-testing-system-pdf-en-157"
+        - name: S3_ACCESS_KEY
+          value: "xxxxxxxxxxxxxx"
+        - name: S3_SECRET_ACCESS_KEY
+          value: "xxxxxxxxxxxxxx"
+        - name: DB_HOST_NAME
+          value: "xxxxxxxxxxxxxx"
+        - name: DB_USER
+          value: "app"
+        - name: DB_PASSWORD
+          value: "xxxxxxxxxxxxxx"
+        - name: DB_NAME
+          value: "helloworldtesting"
+        - name: DB_PORT
+          value: "3306"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-testing-system
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  selector:
+    app: hello-world-testing-system
