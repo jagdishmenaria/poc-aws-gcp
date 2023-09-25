@@ -82,8 +82,12 @@
 
   	c) Application is deployed successfully, and can be verified by the public IP in Services and ingress section
 
-7. Terminate the resources<br>
+6. Terminate the resources<br>
 		-Make sure to delete or stop all services or tools running. It saves your cost
+
+<b>Sample App (UI) Page</b>
+
+<img src="app-html.jpg" alt="Sample App (UI) Page">
 
 -----------------------------------------------------------------------------------------------
 <b>TROUBLESHOOTING</b>
