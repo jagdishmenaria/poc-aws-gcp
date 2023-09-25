@@ -65,25 +65,24 @@
 			docker build -t gcr.io/<project_id>/hello-app:1.0 .
 			gcloud docker -- push gcr.io/<project_id>/hello-app:1.0
 
-	b) Go to kubernetes folder and change the below in hello-world-testing-system.yaml file:
-
-			Copy/paste the AWS generated Access Key ID and Secret Access Key
-			Replace the project_ID
-			Provide DB Hostname, Instance name, user, password and port details
+	b) Go to kubernetes folder and change the below in hello-world-testing-system.yaml file:<br>
+			Copy/paste the AWS generated Access Key ID and Secret Access Key<br>
+			Replace the project_ID<br>
+			Provide DB Hostname, Instance name, user, password and port details<br>
 			
 5. Connect to the GKE Cluster, Deploy application and Test it.<br>		
 	
  	a) Connect GKE Cluster through GCP console, and click on 'Run in cloud shell' option
 
-	b) Cd~/<PATH_TO_KUBERNETES_DIRECTORY>/kubernetes
+		Cd~/<PATH_TO_KUBERNETES_DIRECTORY>/kubernetes
 
-  	c) Apply the declarative yaml file to deploy the pods and expose service in kubernetes:
+  	b) Apply the declarative yaml file to deploy the pods and expose service in kubernetes:
    
 			kubectl apply -f hello-world-testing-system.yaml
 
-  	d) Application is deployed successfully, and can be verified by the public IP in Services and ingress section
+  	c) Application is deployed successfully, and can be verified by the public IP in Services and ingress section
 
-6. Terminate the resources<br>
+7. Terminate the resources<br>
 		-Make sure to delete or stop all services or tools running. It saves your cost
 
 -----------------------------------------------------------------------------------------------
