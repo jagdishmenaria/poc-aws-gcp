@@ -97,7 +97,7 @@
 3. In the last step, it may happen that the Public IP doesn’t work.
 	Solution - Need to wait for atleast 2-5 mins then try again. Also check on GKE cluster workloads if all sections are green marked or not.	
 -----------------------------------------------------------------------------------------------	
-Naming Conventions:<br>
+<b>Naming Conventions:</b><br>
 		AWS_BUCKET = hello-world-testing-system-pdf-en-157 <br>
 		AWS_IAM_user = hello-world-testing-system-en-app1 <br>
 		mysql --host=<public_ip> --port=3306 -u app -p <br>
